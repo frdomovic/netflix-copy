@@ -4,12 +4,14 @@ import Head from 'next/head'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { signInWithPopup, signInWithRedirect } from 'firebase/auth'
+import useAuth from '../hooks/useAuth'
 interface Inputs {
   email: string
   password: string
 }
 export default function Login() {
   const [login, setLogin] = useState(false)
+  const { signIn, signUp } = useAuth()
   const {
     register,
     handleSubmit,
